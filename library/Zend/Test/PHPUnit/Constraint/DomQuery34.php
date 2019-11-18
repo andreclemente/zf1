@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework
  *
@@ -26,14 +27,14 @@ require_once 'Zend/Dom/Query.php';
 /**
  * Zend_Dom_Query-based PHPUnit Constraint
  *
- * @uses       PHPUnit_Framework_Constraint
+ * @uses       PHPUnit\Framework\Constraint\Constraint
  * @category   Zend
  * @package    Zend_Test
  * @subpackage PHPUnit
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Test_PHPUnit_Constraint_DomQuery34 extends PHPUnit_Framework_Constraint
+class Zend_Test_PHPUnit_Constraint_DomQuery34 extends PHPUnit\Framework\Constraint\Constraint
 {
     /**#@+
      * Assertion type constants
@@ -42,8 +43,8 @@ class Zend_Test_PHPUnit_Constraint_DomQuery34 extends PHPUnit_Framework_Constrai
     const ASSERT_CONTENT_CONTAINS = 'assertQueryContentContains';
     const ASSERT_CONTENT_REGEX    = 'assertQueryContentRegex';
     const ASSERT_CONTENT_COUNT    = 'assertQueryCount';
-    const ASSERT_CONTENT_COUNT_MIN= 'assertQueryCountMin';
-    const ASSERT_CONTENT_COUNT_MAX= 'assertQueryCountMax';
+    const ASSERT_CONTENT_COUNT_MIN = 'assertQueryCountMin';
+    const ASSERT_CONTENT_COUNT_MAX = 'assertQueryCountMax';
     /**#@-*/
 
     /**
@@ -203,14 +204,14 @@ class Zend_Test_PHPUnit_Constraint_DomQuery34 extends PHPUnit_Framework_Constrai
     /**
      * Report Failure
      *
-     * @see    PHPUnit_Framework_Constraint for implementation details
+     * @see    PHPUnit\Framework\Constraint\Constraint for implementation details
      * @param  mixed $other CSS selector path
      * @param  string $description
      * @param  bool $not
      * @return void
      * @throws PHPUnit_Framework_ExpectationFailedException
      */
-    public function fail($other, $description, $not = false)
+    public function fail($other, $description, $not = false): void
     {
         require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
@@ -265,7 +266,7 @@ class Zend_Test_PHPUnit_Constraint_DomQuery34 extends PHPUnit_Framework_Constrai
      *
      * @return string
      */
-    public function toString()
+    public function toString(): string
     {
         return '';
     }

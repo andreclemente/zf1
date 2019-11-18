@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Zend Framework
  *
@@ -23,14 +24,14 @@
 /**
  * Response header PHPUnit Constraint
  *
- * @uses       PHPUnit_Framework_Constraint
+ * @uses       PHPUnit\Framework\Constraint\Constraint
  * @category   Zend
  * @package    Zend_Test
  * @subpackage PHPUnit
  * @copyright  Copyright (c) 2005-2015 Zend Technologies USA Inc. (http://www.zend.com)
  * @license    http://framework.zend.com/license/new-bsd     New BSD License
  */
-class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Constraint
+class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit\Framework\Constraint\Constraint
 {
     /**#@+
      * Assertion type constants
@@ -62,7 +63,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
      * @var int Response code
      */
     protected $_code              = 200;
-    
+
     /**
      * @var int Actual response code
      */
@@ -90,8 +91,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
      * @return void
      */
     public function __construct()
-    {
-    }
+    { }
 
     /**
      * Indicate negative match
@@ -189,7 +189,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
     /**
      * Report Failure
      *
-     * @see    PHPUnit_Framework_Constraint for implementation details
+     * @see    PHPUnit\Framework\Constraint\Constraint for implementation details
      * @param  mixed    CSS selector path
      * @param  string   Failure description
      * @param  object   Cannot be used, null
@@ -204,7 +204,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
      * NOTE 2:
      * Interface changed again in PHPUnit 4.1.0 because of refactoring to SebastianBergmann\Comparator
      */
-    public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used = NULL)
+    public function fail($other, $description, \SebastianBergmann\Comparator\ComparisonFailure $cannot_be_used = NULL): void
     {
         require_once 'Zend/Test/PHPUnit/Constraint/Exception.php';
         switch ($this->_assertType) {
@@ -255,7 +255,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
      *
      * @return string
      */
-    public function toString()
+    public function toString(): string
     {
         return '';
     }
@@ -335,7 +335,7 @@ class Zend_Test_PHPUnit_Constraint_ResponseHeader41 extends PHPUnit_Framework_Co
      */
     protected function _getHeader(Zend_Controller_Response_Abstract $response, $header)
     {
-        $headers = $response->sendHeaders();
+        $headers = (array) $response->sendHeaders();
         $header  = strtolower($header);
         if (array_key_exists($header, $headers)) {
             return $headers[$header];
